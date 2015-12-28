@@ -1,0 +1,11 @@
+{
+  "name": "pasp",
+  "appPath": "app",
+  "moduleName": "pasp-ui-seed",
+  "version": "0.1.0",
+  "dependencies": {
+   
+  },
+  "overrides": {
+  }
+}

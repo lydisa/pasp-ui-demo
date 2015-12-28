@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>中国电信云平台前端框架</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <link rel="stylesheet" href="libs/styles/libs.css" />
+    <link rel="stylesheet" href="libs/styles/pasp.css" />
+</head>
+
+<body ng-app="pasp.ui.seed">
+    <div id="wrapper">
+        <ul class="navigation-1 clearfix">
+            <li><a href="#/home">Home</a></li>
+            <li><a href="#/page1">Page1</a></li>
+            <li><a href="#/page2">Page2</a></li>
+        </ul>
+
+        <div class="container-fulid">
+            <div class="container-inner" ui-view></div>
+        </div>
+    </div>
+
+    <script src="libs/scripts/libs.js"></script>
+    <script src="libs/scripts/pasp.js"></script>
+    <script src="libs/scripts/componentsTemplate.js"></script>
+
+    <!-- build:js_seed({.tmp,app}) scripts/pasp-seed.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/pages/home/home.controller.js"></script>
+    <script src="scripts/pages/page1/page1.controller.js"></script>
+    <script src="scripts/pages/page2/page2.controller.js"></script>
+    <!-- endbuild -->
+
+    <!-- inject:ngTemplate -->
+    <!-- endinject -->
+</body>
+</html>
