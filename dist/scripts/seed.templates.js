@@ -1,0 +1,3 @@
+angular.module("pasp.ui.seed").run(["$templateCache", function($templateCache) {$templateCache.put("scripts/pages/home/home.view.html","<ui-panel>\n    <ui-panel-heading>\n        <h1>{{title}}</h1>\n    </ui-panel-heading>\n    \n    <p>{{content}}</p>\n</ui-panel>");
+$templateCache.put("scripts/pages/page1/page1.view.html","<ui-panel>\n    <ui-panel-heading>\n        <h1>{{title}}</h1>\n    </ui-panel-heading>\n    \n    <p>{{content}}</p>\n</ui-panel>");
+$templateCache.put("scripts/pages/page2/page2.view.html","<ui-panel>\n    <ui-panel-heading>\n        <h1>{{title}}</h1>\n    </ui-panel-heading>\n    \n    <p>{{content}}</p>\n</ui-panel>");}]);

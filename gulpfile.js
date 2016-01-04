@@ -17,6 +17,7 @@ var gulp = require('gulp'),
 
 var appConfig = {
     bower: 'bower_components',
+    node: 'node_modules',
     app: require('./bower.json').appPath || 'app',
     dist: 'dist'
 };
@@ -36,12 +37,8 @@ gulp.task('connect:dev', function() {
                     connect.static('./' + appConfig.dist)
                 ),
                 connect().use(
-                    '/bower_components',
-                    connect.static('./bower_components')
-                ),
-                connect().use(
-                    '/bower_components/tinymce-dist/skins',
-                    connect.static('./bower_components/angular-ui-tinymce/src/skins')
+                    '/node_modules',
+                    connect.static('./node_modules')
                 ),
             ]
         }
@@ -98,6 +95,15 @@ gulp.task('clean:build', function() {
     return del([path.join(appConfig.dist, '/**')]);
 });
 
+// 复制依赖包
+// -------------------------------
+gulp.task('copy', ['clean:build'], function() {
+    gulp.src(path.join(appConfig.node, 'pasp-ui/fonts/**/*'))
+        .pipe(gulp.dest(path.join(appConfig.dist, 'fonts')));
+        
+    gulp.src(path.join(appConfig.node, 'pasp-ui/images/**/*'))
+        .pipe(gulp.dest(path.join(appConfig.dist, 'images')));
+});
 
 // usemin
 // -------------------------------
@@ -105,6 +111,7 @@ gulp.task('usemin', ['clean:build', 'sass'], function() {
     return gulp.src(path.join(appConfig.app, '/index.html'))
         .pipe(usemin({
              css: [ minifyCss({keepSpecialComments:0}) ],
+             js_pasp: [ 'concat' ],
              js_demo: [ ngAnnotate(), uglify() ]
         }))
         .pipe(gulp.dest(appConfig.dist));
@@ -115,7 +122,7 @@ gulp.task('usemin', ['clean:build', 'sass'], function() {
 // -------------------------------
 gulp.task('template:seed', ['clean:build'], function() {
     return gulp.src(path.join(appConfig.app, '/scripts/**/*.html'))
-        .pipe(templateCache('seedTemplate.js', {
+        .pipe(templateCache('seed.templates.js', {
             module: 'pasp.ui.seed',
             root: 'scripts'
         }))
@@ -126,7 +133,7 @@ gulp.task('template:seed', ['clean:build'], function() {
 // 插入angular template
 // -------------------------------
 gulp.task('inject', ['usemin', 'template:seed'], function() {
-    var partialsInjectFile = gulp.src([path.join(appConfig.dist, 'scripts/seedTemplate.js')], { read: false });
+    var partialsInjectFile = gulp.src([path.join(appConfig.dist, 'scripts/seed.templates.js')], { read: false });
     var partialsInjectOptions = {
         starttag: '<!-- inject:ngTemplate -->',
         ignorePath: appConfig.dist,
@@ -138,36 +145,6 @@ gulp.task('inject', ['usemin', 'template:seed'], function() {
         .pipe(gulp.dest(appConfig.dist));
 });
 
-// 复制依赖包
-// -------------------------------
-gulp.task('copy:lib', ['clean:build'], function() {
-    gulp.src(path.join(appConfig.app, 'libs/**/*'))
-        .pipe(gulp.dest(path.join(appConfig.dist, 'libs')));
-});
-
-// 复制图片
-// -------------------------------
-gulp.task('copy:image', ['clean:build'], function() {
-    gulp.src(path.join(appConfig.app, 'images/**/*'))
-        .pipe(gulp.dest(path.join(appConfig.dist, 'images')));
-});
-
-gulp.task('copy:pic', ['clean:build'], function() {
-    gulp.src(path.join(appConfig.app, 'pics/**/*'))
-        .pipe(gulp.dest(path.join(appConfig.dist, 'pics')));
-});
-
-// 复制测试JSON API
-// -------------------------------
-gulp.task('copy:api', ['clean:build'], function() {
-    gulp.src(path.join(appConfig.app, 'api/**/*'))
-        .pipe(gulp.dest(path.join(appConfig.dist, 'api')));
-});
-
-// 复制文件
-// -------------------------------
-gulp.task('copy', ['copy:image', 'copy:pic', 'copy:api', 'copy:lib']);
-
 
 // 运行开发环境
 // -------------------------------
@@ -177,6 +154,6 @@ gulp.task('default', ['sass', 'jshint', 'watch', 'connect:dev', 'open'], functio
 
 // 编译生产环境
 // -------------------------------
-gulp.task('build', ['clean:build', 'sass', 'usemin', 'template:demo', 'inject', 'copy'], function() {
+gulp.task('build', ['clean:build', 'sass', 'usemin', 'template:seed', 'inject', 'copy'], function() {
 
 });
