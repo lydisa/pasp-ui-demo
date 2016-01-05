@@ -105,12 +105,20 @@ gulp.task('copy', ['clean:build'], function() {
         .pipe(gulp.dest(path.join(appConfig.dist, 'images')));
 });
 
+// 复制测试JSON
+// -------------------------------
+gulp.task('copy:json', ['clean:build'], function() {
+    gulp.src(path.join(appConfig.app, 'api/**/*'))
+        .pipe(gulp.dest(path.join(appConfig.dist, 'api')));
+});
+
 // usemin
 // -------------------------------
 gulp.task('usemin', ['clean:build', 'sass'], function() {
     return gulp.src(path.join(appConfig.app, '/index.html'))
         .pipe(usemin({
              css: [ minifyCss({keepSpecialComments:0}) ],
+             css_pasp: [ 'concat' ],
              js_pasp: [ 'concat' ],
              js_demo: [ ngAnnotate(), uglify() ]
         }))
@@ -154,6 +162,6 @@ gulp.task('default', ['sass', 'jshint', 'watch', 'connect:dev', 'open'], functio
 
 // 编译生产环境
 // -------------------------------
-gulp.task('build', ['clean:build', 'sass', 'usemin', 'template:seed', 'inject', 'copy'], function() {
+gulp.task('build', ['clean:build', 'sass', 'usemin', 'template:seed', 'inject', 'copy', 'copy:json'], function() {
 
 });

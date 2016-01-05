@@ -10,23 +10,27 @@
         ])
         .config(function($stateProvider, $urlRouterProvider) {
             $urlRouterProvider
-                .otherwise('/home');
+                .otherwise('/');
 
             $stateProvider
-                .state('home', {
-                    url: "/home",
+                .state('/', {
+                    url: "/",
                     templateUrl: "scripts/pages/home/home.view.html",
                     controller: 'HomeCtrl'
                 })
-                .state('page1', {
-                    url: "/page1",
-                    templateUrl: "scripts/pages/page1/page1.view.html",
-                    controller: 'Page1Ctrl'
+                .state('table', {
+                    url: "/table",
+                    templateUrl: "scripts/pages/table/table.view.html",
+                    controller: 'TableCtrl'
                 })
-                .state('page2', {
-                    url: "/page2",
-                    templateUrl: "scripts/pages/page2/page2.view.html",
-                    controller: 'Page2Ctrl'
+                .state('form', {
+                    url: "/form",
+                    templateUrl: "scripts/pages/form/form.view.html",
+                    controller: 'FormCtrl'
+                })
+                .state('article', {
+                    url: "/article",
+                    templateUrl: "scripts/pages/article/article.view.html"
                 });
         });
 })();

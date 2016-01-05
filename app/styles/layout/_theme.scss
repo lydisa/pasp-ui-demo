@@ -1,0 +1,89 @@
+* {
+    outline: none;
+}
+
+.header-top {
+
+    .branding a {
+        margin-top: 23px;
+    }
+
+    .navbar-right {
+        .avatar {
+            width: 30px;
+            margin-right: 5px;
+        }
+        
+        i.lg {
+            font-size: 1.8em;
+        }
+
+        .label {
+            position: absolute;
+            top: 16px;
+            right: 8px;
+            background: $danger-border;
+            line-height: 12px;
+            border-radius: 20px;
+            padding: .3em .6em;
+        }
+    }
+
+    .dropdown-menu i {
+        margin-top: 3px;
+    }
+}
+
+.page-header {
+    .sub-title {
+        border-left: 1px solid $gray-lighter;
+        float: left;
+        margin: 10px 0 0 15px;
+        padding: 0 0 0 10px;
+
+        a {
+            color: $gray-light;
+        }
+    }
+}
+
+.toolbar {
+    background: $white;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+
+.confirm-dialog .modal-dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    margin: -62px 0 0 -100px;
+    text-align: center;
+
+    button {
+        margin: 0 5px;
+    }
+}
+
+.article-header {
+    padding: 0 5%;
+    margin-bottom: 0;
+
+    .datetime {
+        display: block;
+        font-size: 12px;
+        color: $gray-light;
+        margin-top: 10px;
+    }
+}
+
+article.article-body {
+    padding: 20px 5% 10px 5%;
+    line-height: 180%;
+
+    h4 {
+        margin-top: 20px;
+    }
+}

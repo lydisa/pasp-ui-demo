@@ -1,0 +1,44 @@
+body {
+    background: $body-bg;
+    color: $body-color;
+    font-family: $font-family;
+}
+
+/* 头部 */
+.header-top {
+    padding: 0 12%;
+
+    .branding {
+        background: none;
+    }
+}
+
+/* 主容器 */
+.container-fulid {
+    color: $body-color;
+    width: 80%;
+    margin: 0 auto;
+
+    .container-inner {
+        padding: 0 35px;
+        padding-top: 80px;
+
+        .page-3col {
+            margin-left: 200px;
+        }
+    }
+}
+
+
+.btn,
+.nav a,
+.nav ul,
+.nav li,
+.close,
+table td,
+.pagination a,
+.form-wrap.ng-hide-add,
+.form-wrap.ng-hide-remove
+{
+    @include transition();
+}

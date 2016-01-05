@@ -1,0 +1,85 @@
+<div class="animate fade-in-down">
+    <!--页头-->
+    <header class="page-header clearfix">
+        <!--页面标题-->
+        <h2>表格</h2>
+        <!--面包屑-->
+        <ol class="breadcrumb">
+            <li>
+                <a href="#">首页</a>
+            </li>
+            <li class="active">
+                <strong>表格</strong>
+            </li>
+        </ol>
+    </header>
+    <!--页面主容器-->
+    <section>
+        <div class="toolbar">
+            <div class="row">
+                <div class="col-sm-4">
+                    <form ng-submit="">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="搜索" />
+                            <span class="input-group-btn">
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-sm-8">
+                    <div class="pull-right">
+                        <button type="button" class="btn btn-default"><i class="fa fa-pencil"></i> 新建</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <ui-panel class="margin-top-10">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>状态</th>
+                        <th>名称</th>
+                        <th>概要</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>进行中</td>
+                        <td>Lorem ipsum dolor sit amet</td>
+                        <td>Consectetur adipisicing elit, sed do eiusmod tempor </td>
+                        <td>
+                            <a href="" class="btn btn-default btn-sm"><i class="fa fa-pencil"></i> 编辑 </a>
+                            <button ng-click="delete()" type="button" class="btn btn-default btn-sm"><i class="fa fa-times"></i> 删除 </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>进行中</td>
+                        <td>Lorem ipsum dolor sit amet</td>
+                        <td>Consectetur adipisicing elit, sed do eiusmod tempor </td>
+                        <td>
+                            <a href="" class="btn btn-default btn-sm"><i class="fa fa-pencil"></i> 编辑 </a>
+                            <button ng-click="delete()" type="button" class="btn btn-default btn-sm"><i class="fa fa-times"></i> 删除 </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>进行中</td>
+                        <td>Lorem ipsum dolor sit amet</td>
+                        <td>Consectetur adipisicing elit, sed do eiusmod tempor </td>
+                        <td>
+                            <a href="" class="btn btn-default btn-sm"><i class="fa fa-pencil"></i> 编辑 </a>
+                            <button ng-click="delete()" type="button" class="btn btn-default btn-sm"><i class="fa fa-times"></i> 删除 </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="pagination-group">
+                <div class="pagination-info">当前第1页, 共1页, 共3条记录</div>
+                <ui-pagination items-per-page="5" total-items="3" ng-model="page.currentPage" max-size="3"></ui-pagination>
+            </div>
+        </ui-panel>
+    </section>
+</div>
