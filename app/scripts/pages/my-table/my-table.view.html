@@ -1,0 +1,59 @@
+<div>
+    <header class="page-header clearfix">
+        <h2>我的表格</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="#">首页</a>
+            </li>
+            <li class="active">
+                <strong>表格</strong>
+            </li>
+        </ol>
+    </header>
+    <section>
+        <div class="toolbar">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="搜索" ng-model="searchValue"/>
+                        <div class="input-group-btn">
+                            <button class="btn btn-primary">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-8">
+                    <div class="pull-right">
+                        <button type="button" class="btn btn-primary">
+                            <i class="fa fa-pencil"></i> 新建
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ui-panel class="margin-top-10">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>状态</th>
+                    <th>名称</th>
+                    <th>概要</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="row in table">
+                    <td>{{row.state}}</td>
+                    <td>{{row.name}}</td>
+                    <td>{{row.memo}}</td>
+                    <td>
+                        <button type="button" class="btn btn-default"><i class="fa fa-pencil"></i> 编辑</button>
+                        <button type="button" class="btn btn-default" ng-click="delete($index)"><i class="fa fa-close" ></i> 删除</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </ui-panel>
+    </section>
+</div>

@@ -1,15 +1,15 @@
-<!doctype html>
+﻿<!doctype html>
 <html>
 <head>
     <meta charset="utf-8">
-    <title>中国电信云平台前端框架</title>
+    <title>自己的web</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png" />
-    <!-- build:css_pasp(.) styles/pasp-ui.min.css -->
-    <link rel="stylesheet" href="node_modules/pasp-ui/styles/libs.min.css" />
-    <link rel="stylesheet" href="node_modules/pasp-ui/styles/pasp.min.css" />
+    <!-- build:css_pasp(app) styles/pasp-ui.min.css -->
+    <link rel="stylesheet" href="libs/styles/libs.min.css" />
+    <link rel="stylesheet" href="libs/styles/pasp.min.css" />
     <!-- endbuild -->
     <!-- build:css({.tmp,app}) styles/pasp-seed.min.css -->
     <link rel="stylesheet" href="styles/pasp-seed.css">
@@ -23,11 +23,11 @@
             <div class="container-inner" ui-view></div>
         </div>
     </div>
-    <!-- build:js_pasp(.) scripts/pasp-ui.min.js -->
-    <script src="node_modules/pasp-ui/scripts/jquery.min.js"></script>
-    <script src="node_modules/pasp-ui/scripts/angular.min.js"></script>
-    <script src="node_modules/pasp-ui/scripts/libs.min.js"></script>
-    <script src="node_modules/pasp-ui/scripts/pasp.min.js"></script>
+    <!-- build:js_pasp(app) scripts/pasp-ui.min.js -->
+    <script src="libs/scripts/jquery.min.js"></script>
+    <script src="libs/scripts/angular.min.js"></script>
+    <script src="libs/scripts/libs.min.js"></script>
+    <script src="libs/scripts/pasp.min.js"></script>
     <!-- endbuild -->
     <!-- build:js_seed(app) scripts/pasp-seed.min.js -->
     <script src="scripts/app.js"></script>
@@ -40,6 +40,7 @@
     <script src="scripts/pages/home/home.controller.js"></script>
     <script src="scripts/pages/table/table.controller.js"></script>
     <script src="scripts/pages/form/form.controller.js"></script>
+    <script src="scripts/pages/my-table/my-table.controller.js"></script>
     <!-- endbuild -->
 
     <!-- inject:ngTemplate -->

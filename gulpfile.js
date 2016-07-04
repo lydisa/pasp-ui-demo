@@ -98,11 +98,9 @@ gulp.task('clean:build', function() {
 // 复制依赖包
 // -------------------------------
 gulp.task('copy', ['clean:build'], function() {
-    gulp.src(path.join(appConfig.node, 'pasp-ui/fonts/**/*'))
-        .pipe(gulp.dest(path.join(appConfig.dist, 'fonts')));
+    gulp.src(path.join(appConfig.node, 'libs/**/*'))
+        .pipe(gulp.dest(path.join(appConfig.dist, 'libs')));
         
-    gulp.src(path.join(appConfig.node, 'pasp-ui/images/**/*'))
-        .pipe(gulp.dest(path.join(appConfig.dist, 'images')));
 });
 
 // 复制测试JSON

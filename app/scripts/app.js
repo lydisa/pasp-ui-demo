@@ -31,6 +31,11 @@
                 .state('article', {
                     url: "/article",
                     templateUrl: "scripts/pages/article/article.view.html"
+                })
+                .state('my-table', {
+                    url: "/my-table",
+                    templateUrl: "scripts/pages/my-table/my-table.view.html",
+                    controller:'MyTableCtrl'
                 });
         });
 })();
